@@ -5,9 +5,11 @@
 # The build number is the current UTC minute, so it always increases and
 # nothing has to be committed per build.
 #
-# Needs Frameworks/ParsecSDK.framework (git submodule, or copy it in). Its
-# binary carries an x86_64 simulator slice that App Store validation rejects,
-# so it is thinned to arm64 first.
+# Needs Frameworks/ParsecSDK.framework (git submodule, or copy it in). Two
+# fixes are applied to it first, both of which App Store processing rejects:
+# its binary carries an x86_64 simulator slice (thinned to arm64), and its
+# Info.plist claims MinimumOSVersion 9.3 while the binary says 11.0
+# (ITMS-90208; the plist is set to match the binary).
 #
 # Usage: scripts/ship-testflight.sh [--no-upload]
 set -euo pipefail
@@ -23,6 +25,8 @@ SDK=Frameworks/ParsecSDK.framework/ParsecSDK
 if lipo -archs "$SDK" | grep -qw x86_64; then
   lipo -remove x86_64 "$SDK" -output "$SDK"
 fi
+minos=$(otool -l "$SDK" | awk '/LC_VERSION_MIN_IPHONEOS/{f=1} f&&/version/{print $2; exit}')
+plutil -replace MinimumOSVersion -string "$minos" "${SDK%/*}/Info.plist"
 
 build=$(date -u +%Y%m%d%H%M)
 echo "Build $build"
