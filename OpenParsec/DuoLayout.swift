@@ -388,7 +388,12 @@ extension ParsecViewController {
 	/// Puts the stream above the fold and the deck below it, or the stream full screen. Called from
 	/// viewDidLayoutSubviews before the stream is sized to streamView.
 	func applyLaptopLayout() {
-		let frames = DuoLayoutGeometry.frames(bounds: view.bounds, fold: foldFrame, active: laptopLayoutActive)
+		let fold = foldFrame
+		// Auto wants the laptop posture: half-open with the fold running across the screen. A
+		// half-open book posture (fold top-to-bottom) keeps the full-screen stream.
+		let foldAcross = fold.map { $0.width > $0.height } ?? true
+		let active = layoutMode == .on || (layoutMode == .auto && hingePartiallyOpen && foldAcross)
+		let frames = DuoLayoutGeometry.frames(bounds: view.bounds, fold: fold, active: active)
 		if let deckFrame = frames.deck {
 			if deckView == nil {
 				let deck = DuoDeckView(trackpadDelegate: self)

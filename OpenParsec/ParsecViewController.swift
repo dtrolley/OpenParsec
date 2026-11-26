@@ -81,9 +81,6 @@ class ParsecViewController: UIViewController, UIScrollViewDelegate, ParsecTouchI
 	var deckView: DuoDeckView?
 	var layoutMode: DuoLayoutMode = SettingsHandler.duoLayout
 	var hingePartiallyOpen = false
-	var laptopLayoutActive: Bool {
-		layoutMode == .on || (layoutMode == .auto && hingePartiallyOpen)
-	}
 	var cursorTouchFromTrackpad = false   // the touch driving the cursor started on the deck trackpad
 	let gestureFilter = OverlayOnlyGestureFilter()
 	// Direct (absolute) cursor mode only makes sense for touches on the picture itself.
