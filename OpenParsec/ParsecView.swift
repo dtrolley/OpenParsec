@@ -113,7 +113,7 @@ struct ParsecStatusBar: View {
 			ParsecBackgroundManager.shared.glkViewController?.isPaused = false
 			// SDK forgets stream dims on reconnect, re-send them so the frame fills not corners
 			if let vc = parsecViewController {
-				CParsec.setFrame(vc.view.bounds.width, vc.view.bounds.height, UIScreen.main.scale)
+				CParsec.setFrame(vc.streamView.bounds.width, vc.streamView.bounds.height, UIScreen.main.scale)
 			}
 		}
 
@@ -148,6 +148,7 @@ struct ParsecView: View {
 
 	@State var showKeyboard: Bool = false
 	@State var zoomEnabled: Bool = false
+	@State var laptopLayout: DuoLayoutMode = SettingsHandler.duoLayout
 
 	@State var muted: Bool = false
 	@State var preferH265: Bool = true
@@ -337,6 +338,12 @@ struct ParsecView: View {
 							}
 							Button(action: toggleZoom) {
 								Text("Zoom: \(zoomEnabled ? "ON" : "OFF")")
+									.padding(8)
+									.frame(maxWidth: .infinity)
+									.multilineTextAlignment(.center)
+							}
+							Button(action: cycleLaptopLayout) {
+								Text("Laptop Layout: \(laptopLayout.label)")
 									.padding(8)
 									.frame(maxWidth: .infinity)
 									.multilineTextAlignment(.center)
@@ -566,6 +573,15 @@ struct ParsecView: View {
 			zoomEnabled.toggle()
 			parsecViewController.setZoomEnabled(zoomEnabled)
 			if SettingsHandler.saveSessionSettings { SettingsHandler.savedZoomEnabled = zoomEnabled }
+		}
+	}
+
+	// Auto follows the iPhone Duo hinge (laptop fold = keyboard + trackpad below the picture);
+	// On forces it on any iPhone; Off never shows it.
+	func cycleLaptopLayout() {
+		DispatchQueue.main.async {
+			laptopLayout = laptopLayout.next
+			parsecViewController.setLayoutMode(laptopLayout)
 		}
 	}
 

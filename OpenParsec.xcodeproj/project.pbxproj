@@ -14,6 +14,7 @@
 		17EA35F72BF712A8001BE0DF /* ParsecSDKBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA35F62BF712A8001BE0DF /* ParsecSDKBridge.swift */; };
 		17EEB91C2BEE62BA00502A3A /* KeyBoardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB91B2BEE62BA00502A3A /* KeyBoardTest.swift */; };
 		271D14F9292E90EB00D7F1D6 /* ParsecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D14F8292E90EB00D7F1D6 /* ParsecView.swift */; };
+		D0A1B2C3D4E5F60718293A01 /* DuoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B2C3D4E5F60718293A02 /* DuoLayout.swift */; };
 		271D14FC292EAA3600D7F1D6 /* ParsecGLKRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D14FA292EAA3600D7F1D6 /* ParsecGLKRenderer.swift */; };
 		271D14FD292EAA3600D7F1D6 /* ParsecGLKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D14FB292EAA3600D7F1D6 /* ParsecGLKViewController.swift */; };
 		274A69CF29EA07FA00F595A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A69CE29EA07FA00F595A5 /* SettingsView.swift */; };
@@ -66,6 +67,7 @@
 		17EA35F62BF712A8001BE0DF /* ParsecSDKBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsecSDKBridge.swift; sourceTree = "<group>"; };
 		17EEB91B2BEE62BA00502A3A /* KeyBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardTest.swift; sourceTree = "<group>"; };
 		271D14F8292E90EB00D7F1D6 /* ParsecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsecView.swift; sourceTree = "<group>"; };
+		D0A1B2C3D4E5F60718293A02 /* DuoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuoLayout.swift; sourceTree = "<group>"; };
 		271D14FA292EAA3600D7F1D6 /* ParsecGLKRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsecGLKRenderer.swift; sourceTree = "<group>"; };
 		271D14FB292EAA3600D7F1D6 /* ParsecGLKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsecGLKViewController.swift; sourceTree = "<group>"; };
 		274A69CE29EA07FA00F595A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				27B23A232B1B98EF00B52F14 /* ParsecMetalViewController.swift */,
 				17EA35F62BF712A8001BE0DF /* ParsecSDKBridge.swift */,
 				271D14F8292E90EB00D7F1D6 /* ParsecView.swift */,
+				D0A1B2C3D4E5F60718293A02 /* DuoLayout.swift */,
 				170E0A762BEF5AFF00B0EA32 /* ParsecViewController.swift */,
 				27E61A99292965FD00FF6563 /* Preview Content */,
 				27E61A93292965FC00FF6563 /* SceneDelegate.swift */,
@@ -315,6 +318,7 @@
 				17EEB91C2BEE62BA00502A3A /* KeyBoardTest.swift in Sources */,
 				17374D412CB8E35D00EDCEE7 /* KeyCodeTranslators.swift in Sources */,
 				271D14F9292E90EB00D7F1D6 /* ParsecView.swift in Sources */,
+				D0A1B2C3D4E5F60718293A01 /* DuoLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

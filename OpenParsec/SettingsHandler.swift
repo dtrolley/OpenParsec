@@ -24,6 +24,7 @@ struct SettingsHandler {
 	@AppStorage("autoReconnect") public static var autoReconnect: Bool = true
 	@AppStorage("errorPrompts") public static var errorPrompts: Bool = false
 	@AppStorage("autoConnectOnLaunch") public static var autoConnectOnLaunch: Bool = false
+	@AppStorage("duoLayout") public static var duoLayout: DuoLayoutMode = .auto // iPhone Duo laptop layout
 
 	@AppStorage("saveSessionSettings") public static var saveSessionSettings: Bool = true
 	@AppStorage("savedZoomEnabled") public static var savedZoomEnabled: Bool = false
